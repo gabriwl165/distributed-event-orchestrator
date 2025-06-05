@@ -1,3 +1,13 @@
+install:
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.1.6
+	pip install pre-commit
+
+format:
+	golangci-lint fmt
+
+lint:
+	golangci-lint run
+
 test:
 	go test ./...
 
