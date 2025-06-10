@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Main File",
+            "type": "go",
+            "mode": "auto",
+            "request": "launch",
+            "program": "${workspaceFolder}/cmd/server/main.go",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+
+        }
+    ]
+}
