@@ -1,4 +1,3 @@
-// internal/infrastructure/kafka/publisher.go
 package kafka
 
 import (
@@ -11,7 +10,7 @@ type KafkaPublisher struct {
 	writer *kafka.Writer
 }
 
-func NewKafkaPublisher(brokers []string) *KafkaPublisher {
+func NewKafkaProducer(brokers []string) *KafkaPublisher {
 	return &KafkaPublisher{
 		writer: &kafka.Writer{
 			Addr:     kafka.TCP(brokers...),
@@ -20,7 +19,7 @@ func NewKafkaPublisher(brokers []string) *KafkaPublisher {
 	}
 }
 
-func (p *KafkaPublisher) Publish(ctx context.Context, topic string, key, value []byte) error {
+func (p *KafkaPublisher) Produce(ctx context.Context, topic string, key, value []byte) error {
 	msg := kafka.Message{
 		Topic: topic,
 		Key:   key,
